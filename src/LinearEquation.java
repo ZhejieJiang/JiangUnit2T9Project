@@ -50,11 +50,33 @@ public class LinearEquation {
     public String equation() {
         String printableSlope;
         String printableYIntercept;
+        String wSlope;
+        String wYIntercept;
+        int n1 = (int)(slope() * 100);
+        int n2 = 100;
+        int temp1 = n1;
+        int temp2 = n2;
+
+        while (n1 != n2){
+            if(n1 > n2)
+                n1 = n1 - n2;
+            else
+                n2 = n2 - n1;
+        }
+
+        int n3 = temp1 / n1 ;
+        int n4 = temp2 / n1 ;
+/*
+        if (n4 == 1){
+            String printableSlope = (n3);}
+        else{
+            String printableSlope = (n3 + "/" + n4);}
+
         if (slope() > 0){
-            printableSlope = "" + (slope()*100)  ;
+            printableSlope = "" + printableSlope  ;
         }
         else if(slope() < 0){
-            printableSlope = "";
+            printableSlope = "-" + printableSlope;
         }
         else{printableSlope = "";}
 
@@ -68,8 +90,8 @@ public class LinearEquation {
         else{printableYIntercept = "";}
 
 
-        return " y = " + printableSlope + printableYIntercept;}
-
+        return " y = " + wSlope + wYIntercept;}
+*/
 
     /* Calculates and returns the y-intercept of the line between (x1, y1) and
      (x2, y2), rounded to the nearest hundredth */
