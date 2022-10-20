@@ -3,12 +3,12 @@ public class LinearEquationRunner {
     public static void main(String[]args){
         Scanner myScanner = new Scanner(System.in);
         System.out.println("Welcome!");
-        System.out.print("Enter coordinate 1: ");
+        System.out.print("Enter coordinate 1 (in the format of (x, y)): ");
         String coordinate1 = myScanner.nextLine();
 
         int x1 = Integer.parseInt(coordinate1.substring(coordinate1.indexOf("(") +1,coordinate1.indexOf(",")));
         int y1 = Integer.parseInt(coordinate1.substring(coordinate1.indexOf(" ") + 1,coordinate1.indexOf(")")));
-        System.out.print("Enter coordinate 2: ");
+        System.out.print("Enter coordinate 2 (in the format of (x, y)): ");
         String coordinate2 = myScanner.nextLine();
 
         int x2 = Integer.parseInt(coordinate2.substring(coordinate2.indexOf("(") +1,coordinate2.indexOf(",")));
