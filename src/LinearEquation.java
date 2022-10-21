@@ -106,7 +106,7 @@ public class LinearEquation {
     /* Returns a String of the coordinate point on the line that has the given x value, with
            both x and y coordinates as decimals to the nearest hundredth, e.g (-5.0, 6.75) */
     public String coordinateForX(double xValue){
-        double yValue = xValue * slope() + yIntercept();
+        double yValue = (xValue * slope()) + yIntercept();
         return "(" + xValue + ", " + yValue + ")";
     }
 
@@ -122,6 +122,10 @@ public class LinearEquation {
           equation(), slope(), yIntercept(), distance().
          */
         public String lineInfo(){
+            if (x1 == x2){
+                return " These points are on a vertical line: x = " + x1;
+            }
+
             String coordinate1 = "(" + x1 + ", " + y1 +")";
             String coordinate2 = "(" + x2 + ", " + y2 + ")";
             return "The two points are:" + coordinate1 + " and " + coordinate2 +
