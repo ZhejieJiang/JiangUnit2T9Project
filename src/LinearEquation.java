@@ -49,39 +49,42 @@ public class LinearEquation {
      */
     public String equation() {
         String printableSlope;
-        String wSlope;
-        String wYIntercept;
-        int n1 = (int)(slope() * 100);
-        int n2 = 100;
-        int temp1 = n1;
-        int temp2 = n2;
+        String Slope;
+        String YIntercept;
+        int X = x2-x1;
+        int Y = y2-y1;
 
-        while (n1 != n2){
-            if(n1 > n2)
-                n1 = n1 - n2;
-            else
-                n2 = n2 - n1;
+
+        if ((slope()) != (int) (slope())) { // Decimals
+            if (!(X < 0 && Y < 0) && (X < 0 || Y < 0)) { //Negatives
+                printableSlope = "-" + Math.abs(Y) + "/" + Math.abs(X);
+            } else { //Positive
+                printableSlope = Math.abs(Y) + "/" + Math.abs(X);
+            }
+        } else {
+            if (!(X < 0 && Y < 0) && (X < 0 || Y < 0)) { /* if double negative */
+                printableSlope = Math.abs(Y) / Math.abs(X) + "";
+                printableSlope = "-" + printableSlope;
+            } else {
+                printableSlope = Math.abs(Y) / Math.abs(X) + "";
+            }
+            if (printableSlope.equals("1")) {
+                printableSlope = "";
+            }
+            if (printableSlope.equals("-1")) {
+                printableSlope = "-";
+            }
         }
-
-        int n3 = temp1 / n1 ;
-        int n4 = temp2 / n1 ;
-
-        if (("" + slope()).endsWith(".0")){
-           printableSlope = "" + (int)slope();}
-        else{
-            printableSlope = (n3 + "/" + n4);}
-
-        if (slope() == 0){
-            wSlope = "" ;}
-        else{wSlope = "" + printableSlope  ;}
-
         if (yIntercept() > 0){
-            wYIntercept = "+ " + yIntercept();}
+            YIntercept = "+ " + yIntercept();}
         else if(yIntercept() < 0){
-            wYIntercept = "- " + Math.abs(yIntercept());}
-        else{wYIntercept = "";}
-
-        return " y = " + wSlope + "x " + wYIntercept;}
+            YIntercept = "- " + Math.abs(yIntercept());}
+        else{YIntercept = "";}
+        if(slope() == 0){
+            return "y = " + (int)yIntercept();}
+        else{
+        Slope = "" + printableSlope;}
+        return "y = " + Slope + "x " + YIntercept;}
 
 
     /* Calculates and returns the y-intercept of the line between (x1, y1) and
@@ -125,12 +128,16 @@ public class LinearEquation {
             if (x1 == x2){
                 return " These points are on a vertical line: x = " + x1;
             }
-
             String coordinate1 = "(" + x1 + ", " + y1 +")";
             String coordinate2 = "(" + x2 + ", " + y2 + ")";
-            return "The two points are:" + coordinate1 + " and " + coordinate2 +
+            return "The two points are: " + coordinate1 + " and " + coordinate2 +
             "\nEquation: " + equation() + "\nSlope: " + slope()
             + "\ny-intercept: " + yIntercept() +"\nDistance: " + distance();
         }
+
+        public static String start(){
+            return "Welcome!";
+        }
+
 }
 
